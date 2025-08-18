@@ -1,0 +1,38 @@
+//
+//  AnimalListView.swift
+//  Africa_swift_ui_master_class
+//
+//  Created by Mark Amoah on 17/08/2025.
+//
+
+import SwiftUI
+
+struct AnimalListItemView: View {
+    let animal: Animal
+    var body: some View {
+        HStack(alignment: .center, spacing: 16) {
+            Image(animal.image)
+                .resizable()
+                .scaledToFill()
+                .frame(width: 90, height: 90)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
+            VStack(alignment: .leading, spacing: 8){
+                Text(animal.name)
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .foregroundColor(.accent)
+                Text(animal.headline)
+                    .font(.footnote)
+                    .multilineTextAlignment(.leading)
+                    .lineLimit(2)
+                    .padding(.trailing, 8)
+            }
+        }
+    }
+}
+
+#Preview(traits: .sizeThatFitsLayout) {
+    let animal = Animal.getAllAnimals().first
+    AnimalListItemView(animal: animal!)
+        .padding()
+}
