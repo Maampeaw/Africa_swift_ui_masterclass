@@ -17,7 +17,7 @@ struct CoverImageView: View {
                 Image(cover.name)
                     .resizable()
                     .scaledToFill()
-            } 
+            }
         }.tabViewStyle(.page)
         
     }
